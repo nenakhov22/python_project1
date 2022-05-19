@@ -46,7 +46,7 @@ axx = fig2.add_subplot()
 axx.grid()
 l = np.linspace(0, 5, 4)
 l1 = [0, 0, 0]
-print(l)
+
 file2 = open('output_group1.txt', 'w') #выведем визуализированную информацию в файл 
 for index in list(teachers_rates_in_total.index): #распределеим преподавателей по средним оценкам
     if teachers_rates_in_total.loc[index]['mean'] >= l[0] and teachers_rates_in_total.loc[index]['mean'] < l[1]:
@@ -58,7 +58,7 @@ for index in list(teachers_rates_in_total.index): #распределеим пр
     elif teachers_rates_in_total.loc[index]['mean'] >= l[2] and teachers_rates_in_total.loc[index]['mean'] <= l[3]:
         file2.write(index+':высокая оценка\n')
         l1[2] += 1
-print(l1)
+
 axx.bar([f'{round(l[i],4)}-{round(l[i+1],4)}' for i in range(3)],l1)
 
 axx.set_ylabel('количество преподавателей')
