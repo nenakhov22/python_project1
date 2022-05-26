@@ -47,7 +47,7 @@ axx.grid()
 l = np.linspace(0, 5, 4)
 l1 = [0, 0, 0]
 
-file2 = open('output_group1.txt', 'w') #выведем визуализированную информацию в файл 
+file2 = open('output_group1.txt', 'w') #выведем визуализированную информацию в файл
 for index in list(teachers_rates_in_total.index): #распределеим преподавателей по средним оценкам
     if teachers_rates_in_total.loc[index]['mean'] >= l[0] and teachers_rates_in_total.loc[index]['mean'] < l[1]:
         file2.write(index+':низкая оценка\n')
@@ -67,6 +67,7 @@ fig2.suptitle('группы преподавателей по оценкам')
 
 
 each_p = staffmarks.groupby(['rtype', 'staff'])['rvalue'].agg(['mean']).copy() #считаем средние оценки преподавателей по каждому показателю
+print(each_p)
 #вторая часть третьего пункта
 fig3, ax33 = plt.subplots(3, 3)
 fig4, ax44 = plt.subplots(2, 2)
@@ -108,10 +109,15 @@ for i in range(2):
         ax44[i, j].bar([f'{round(l[i], 4)}-{round(l[i + 1], 4)}' for i in range(3)], l1)
         l1 = [0, 0, 0]
         k += 1
+file4 = open("output_group3.txt",'w')
+file4.write("преподаватели, у которых наблюдается жажда к выносам(т.е. средняя оценка 1-2)\n")
+for i in list(each_p.loc[5].index):
+    if each_p.loc[5].loc[i]['mean']>=1 and each_p.loc[5].loc[i]['mean']<=2:
+        file4.write(i+' : '+str(each_p.loc[5].loc[i]['mean'])+'\n')
 file1.close()
 file2.close()
 file3.close()
+file4.close()
 plt.show()
-
 
 
