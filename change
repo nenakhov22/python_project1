@@ -1,0 +1,7 @@
+for i in range(0,60291):
+    staffmarks.loc[i,'dt']=staffmarks.loc[i,'dt'][0:4]
+q=staffmarks.loc[(staffmarks.rtype==5)].groupby(['rvalue','dt'])['student'].agg(['count']).copy()
+fig_1 = plt.figure(figsize=(7, 4))
+axx_x = fig_1.add_subplot()
+axx_x.plot(q.loc[1]['dt'],q.loc[1]['count'])
+plt.show()
