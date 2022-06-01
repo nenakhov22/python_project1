@@ -5,3 +5,4 @@
 - выявить группы преподавателей по оценкам (высокие, средние, низкие) – в общем и по каждому признаку 
 + любые другие оценки по Вашему выбору
  Все результаты визуализировать
+presentation: https://studentspburu-my.sharepoint.com/:p:/g/personal/st087006_student_spbu_ru/Efa1b32OsRpJrM4HOkXjDQsBM_rhtKaYHGyCllqMUSxypA?e=ZtibnM
